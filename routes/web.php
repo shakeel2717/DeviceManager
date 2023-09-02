@@ -7,9 +7,10 @@ use App\Http\Controllers\WebHookController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::redirect('/','/admin');
+Route::redirect('/', '/admin');
 
-Route::post('/api/webhook/sms', [WebHookController::class, 'sms'])->name('webhook.sms');
+Route::post('/api/notification/battery', [WebHookController::class, 'battery'])->name('webhook.battery');
+Route::get('/api/notification/battery', [WebHookController::class, 'index'])->name('webhook.index');
 
 
 require __DIR__ . '/auth.php';

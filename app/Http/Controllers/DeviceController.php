@@ -23,7 +23,7 @@ class DeviceController extends Controller
         return view('admin.device.create');
     }
 
-    public function battery_level($level = 0)
+    public function battery_level($level = 100)
     {
         return view('admin.device.index', compact('level'));
     }
