@@ -14,9 +14,9 @@ class DashboardController extends Controller
     public function index()
     {
         $devices = Device::query();
-        // get devices that not updated_at changed since 24 hours
+        $alldevices = Device::get();
 
-        return view('admin.dashboard.index', compact('devices'));
+        return view('admin.dashboard.index', compact('devices','alldevices'));
     }
 
     /**

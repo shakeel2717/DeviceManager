@@ -16,6 +16,9 @@ final class AllDevices extends PowerGridComponent
     use WithExport;
 
     public $level;
+    public $name;
+    public $code;
+    public $battery_level;
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +57,7 @@ final class AllDevices extends PowerGridComponent
      */
     public function datasource(): Builder
     {
-        return Device::query()->where('battery_level', '>=', $this->level);
+        return Device::query()->where('battery_level', '<', $this->level);
     }
 
     /*
@@ -121,14 +124,17 @@ final class AllDevices extends PowerGridComponent
             Column::make('Id', 'id'),
             Column::make('Code', 'code')
                 ->sortable()
+                ->editOnClick()
                 ->searchable(),
 
             Column::make('Name', 'name')
                 ->sortable()
+                ->editOnClick()
                 ->searchable(),
 
             Column::make('Battery level', 'battery_level')
                 ->sortable()
+                ->editOnClick()
                 ->searchable(),
 
             Column::make('Charging', 'charging')
@@ -150,7 +156,7 @@ final class AllDevices extends PowerGridComponent
         return [
             Filter::inputText('code')->operators(['contains']),
             Filter::inputText('name')->operators(['contains']),
-            Filter::inputText('battery_level')->operators(['contains']),
+            Filter::number('battery_level'),
             Filter::boolean('charging'),
             Filter::datetimepicker('created_at'),
         ];
@@ -189,6 +195,13 @@ final class AllDevices extends PowerGridComponent
         ];
     }
     */
+
+    public function onUpdatedEditable(string $id, string $field, string $value): void
+    {
+        Device::query()->find($id)->update([
+            $field => $value,
+        ]);
+    }
 
     /*
     |--------------------------------------------------------------------------

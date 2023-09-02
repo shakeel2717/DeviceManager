@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
+            $table->string('code')->unique();
             $table->string('name');
             $table->string('battery_level')->default(10);
             $table->boolean('charging')->default(false);

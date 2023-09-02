@@ -34,18 +34,17 @@ class DeviceController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string',
+            'name' => 'required|string|unique:devices,id',
             'code' => 'required|string',
         ]);
 
         // adding this device
-        $device = Device::updateOrCreate([
-            'code' => $validatedData['code']
-        ], [
-            'name' => $validatedData['name']
+        $device = Device::create([
+            'code' => $validatedData['code'],
+            'name' => $validatedData['name'],
         ]);
 
-        return back()->with('success', 'Device Added Successfully');
+        return back()->with('success', 'Device Added Or Updated Successfully');
     }
 
     /**
