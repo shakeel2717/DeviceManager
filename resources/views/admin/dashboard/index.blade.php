@@ -14,13 +14,13 @@
 
         <div class="content">
             <div class="row items-push">
-                <div class="col-sm-6 col-xxl-3">
+                <div class="col-sm-6 col-xxl-4">
                     <div class="block block-rounded d-flex flex-column h-100 mb-0">
                         <div
                             class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                             <dl class="mb-0">
-                                <dt class="fs-3 fw-bold">{{ $countries->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Total Countries</dd>
+                                <dt class="fs-3 fw-bold">{{ $devices->count() }}</dt>
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Total Devices</dd>
                             </dl>
                             <div class="item item-rounded-lg bg-body-light">
                                 <i class="far fa-gem fs-3 text-primary"></i>
@@ -28,8 +28,52 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.countries.index') }}">
-                                <span>View all Countries</span>
+                                href="#">
+                                <span>View all Devices</span>
+                                <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xxl-4">
+                    <div class="block block-rounded d-flex flex-column h-100 mb-0">
+                        <div
+                            class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
+                            <dl class="mb-0">
+                                <dt class="fs-3 fw-bold">
+                                    {{ $devices->whereDate('updated_at', '>=', now()->subHours(24))->count() }}</dt>
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Active Devices</dd>
+                            </dl>
+                            <div class="item item-rounded-lg bg-body-light">
+                                <i class="far fa-gem fs-3 text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="bg-body-light rounded-bottom">
+                            <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
+                                href="#">
+                                <span>View all Devices</span>
+                                <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xxl-4">
+                    <div class="block block-rounded d-flex flex-column h-100 mb-0">
+                        <div
+                            class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
+                            <dl class="mb-0">
+                                <dt class="fs-3 fw-bold">
+                                    {{ $devices->whereDate('updated_at', '<=', now()->subHours(24))->count() }}</dt>
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Offline Devices</dd>
+                            </dl>
+                            <div class="item item-rounded-lg bg-body-light">
+                                <i class="far fa-gem fs-3 text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="bg-body-light rounded-bottom">
+                            <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
+                                href="#">
+                                <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
                         </div>
@@ -40,8 +84,10 @@
                         <div
                             class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                             <dl class="mb-0">
-                                <dt class="fs-3 fw-bold">{{ $countries->where('status', true)->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Active Countries</dd>
+                                <dt class="fs-3 fw-bold">
+                                    {{ $devices->count() }}</dt>
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Devices Upto 90% Battery Level
+                                </dd>
                             </dl>
                             <div class="item item-rounded-lg bg-body-light">
                                 <i class="far fa-gem fs-3 text-primary"></i>
@@ -49,8 +95,8 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.countries.index') }}">
-                                <span>View all Countries</span>
+                                href="#">
+                                <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
                         </div>
@@ -61,8 +107,10 @@
                         <div
                             class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                             <dl class="mb-0">
-                                <dt class="fs-3 fw-bold">{{ $numbers->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Total Numbers</dd>
+                                <dt class="fs-3 fw-bold">
+                                    {{ $devices->count() }}</dt>
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Devices Upto 50% Battery Level
+                                </dd>
                             </dl>
                             <div class="item item-rounded-lg bg-body-light">
                                 <i class="far fa-gem fs-3 text-primary"></i>
@@ -70,8 +118,8 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.numbers.index') }}">
-                                <span>View all Numbers</span>
+                                href="#">
+                                <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
                         </div>
@@ -82,8 +130,10 @@
                         <div
                             class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                             <dl class="mb-0">
-                                <dt class="fs-3 fw-bold">{{ $messages->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Total Messages</dd>
+                                <dt class="fs-3 fw-bold">
+                                    {{ $devices->count() }}</dt>
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Devices Upto 30% Battery Level
+                                </dd>
                             </dl>
                             <div class="item item-rounded-lg bg-body-light">
                                 <i class="far fa-gem fs-3 text-primary"></i>
@@ -91,8 +141,31 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.messages.index') }}">
-                                <span>View all Messages</span>
+                                href="#">
+                                <span>View all Devices</span>
+                                <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xxl-3">
+                    <div class="block block-rounded d-flex flex-column h-100 mb-0">
+                        <div
+                            class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
+                            <dl class="mb-0">
+                                <dt class="fs-3 fw-bold">
+                                    {{ $devices->count() }}</dt>
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Devices Upto 15% Battery Level
+                                </dd>
+                            </dl>
+                            <div class="item item-rounded-lg bg-body-light">
+                                <i class="far fa-gem fs-3 text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="bg-body-light rounded-bottom">
+                            <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
+                                href="#">
+                                <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
                         </div>

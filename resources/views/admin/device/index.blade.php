@@ -13,10 +13,16 @@
         </div>
 
         <div class="content">
+            <div class="row">
+                <div class="col-md-12 mb-4">
+                    <a href="{{ route('admin.device.create') }}" class="btn btn-primary btn-lg"> <i class="fa fa-plus-square"
+                            aria-hidden="true"></i> Add New Device</a>
+                </div>
+            </div>
             <div class="row items-push">
                 <div class="col-md-12">
                     <div class="card card-body">
-                        <livewire:admin.all-messages/>
+                        <livewire:admin.all-devices level="{{ $level ?? 0 }}" />
                     </div>
                 </div>
             </div>

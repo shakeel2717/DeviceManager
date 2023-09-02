@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Country;
-use App\Models\Message;
-use App\Models\Number;
+use App\Models\Device;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -15,10 +13,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $countries = Country::all();
-        $numbers = Number::all();
-        $messages = Message::all();
-        return view('admin.dashboard.index', compact('countries','numbers','messages'));
+        $devices = Device::query();
+        // get devices that not updated_at changed since 24 hours
+
+        return view('admin.dashboard.index', compact('devices'));
     }
 
     /**

@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Country extends Model
+class Device extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        'code',
         'name',
-        'flag',
-        'description',
-        'status',
+        'battery_level',
+        'charging',
     ];
-
-    public function numbers()
-    {
-        return $this->hasMany(Number::class);
-    }
 }

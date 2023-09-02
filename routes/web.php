@@ -7,12 +7,7 @@ use App\Http\Controllers\WebHookController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::redirect('/','/number');
-Route::resource('/', LandingPageController::class);
-Route::resource('/country', CountryController::class);
-Route::resource('/number', NumberController::class);
-
-
+Route::redirect('/','/admin');
 
 Route::post('/api/webhook/sms', [WebHookController::class, 'sms'])->name('webhook.sms');
 

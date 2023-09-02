@@ -11,29 +11,25 @@
                 </div>
             </div>
         </div>
-
         <div class="content">
             <div class="row items-push">
                 <div class="col-md-8 mx-auto">
                     <div class="card card-body">
-                        <form action="{{ route('admin.numbers.store') }}" method="POST">
+                        <form action="{{ route('admin.device.store') }}" method="POST">
                             @csrf
                             <div class="from-group mb-2">
-                                <label for="name">Select Country</label>
-                                <select name="country_id" id="country_id" class="form-control">
-                                    @foreach ($countries as $country)
-                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
-                                    @endforeach
-                                </select>
+                                <label for="name">Device Name</label>
+                                <input type="text" name="name" id="name" class="form-control"
+                                    placeholder="Device Name">
                             </div>
                             <div class="from-group mb-2">
-                                <label for="number">Add Number</label>
-                                <input type="text" name="number" id="number" class="form-control"
-                                    placeholder="+923037702717">
+                                <label for="code">Device Code</label>
+                                <input type="text" name="code" id="code" class="form-control"
+                                    placeholder="Device Code">
                             </div>
                             <div class="from-group mb-2">
                                 <button type="submit" class="btn btn-primary btn-lg mt-4"><i class="fa fa-plus-square"
-                                        aria-hidden="true"></i> Add Number</button>
+                                        aria-hidden="true"></i> Add Device</button>
                             </div>
                         </form>
                     </div>

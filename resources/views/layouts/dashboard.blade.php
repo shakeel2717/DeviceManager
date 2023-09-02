@@ -56,39 +56,48 @@
                                 <span class="nav-main-link-name">Dashboard</span>
                             </a>
                         </li>
-                        <li class="nav-main-heading">Country Management</li>
+                        <li class="nav-main-heading">Device Management</li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('admin.countries.create') }}">
+                            <a class="nav-main-link" href="{{ route('admin.device.index') }}">
                                 <i class="nav-main-link-icon si si-speedometer"></i>
-                                <span class="nav-main-link-name">Add New Countries</span>
+                                <span class="nav-main-link-name">All Devices</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('admin.countries.index') }}">
+                            <a class="nav-main-link" href="{{ route('admin.device.create') }}">
                                 <i class="nav-main-link-icon si si-speedometer"></i>
-                                <span class="nav-main-link-name">All Countries</span>
+                                <span class="nav-main-link-name">Add new Device</span>
                             </a>
                         </li>
-
-                        <li class="nav-main-heading">Number Management</li>
+                        <li class="nav-main-heading">Battery Level</li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('admin.numbers.create') }}">
+                            <a class="nav-main-link" href="{{ route('admin.device.battery_level', ['level' => 90]) }}">
                                 <i class="nav-main-link-icon si si-speedometer"></i>
-                                <span class="nav-main-link-name">Add New Number</span>
+                                <span class="nav-main-link-name">90% Battery Level</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('admin.numbers.index') }}">
+                            <a class="nav-main-link" href="{{ route('admin.device.battery_level', ['level' => 50]) }}">
                                 <i class="nav-main-link-icon si si-speedometer"></i>
-                                <span class="nav-main-link-name">All Number</span>
+                                <span class="nav-main-link-name">50% Battery Level</span>
                             </a>
                         </li>
-
-                        <li class="nav-main-heading">Message Management</li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('admin.messages.index') }}">
+                            <a class="nav-main-link" href="{{ route('admin.device.battery_level', ['level' => 30]) }}">
                                 <i class="nav-main-link-icon si si-speedometer"></i>
-                                <span class="nav-main-link-name">All Messages</span>
+                                <span class="nav-main-link-name">30% Battery Level</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.device.battery_level', ['level' => 15]) }}">
+                                <i class="nav-main-link-icon si si-speedometer"></i>
+                                <span class="nav-main-link-name">15% Battery Level</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.device.battery_level', ['level' => 0]) }}">
+                                <i class="nav-main-link-icon si si-speedometer"></i>
+                                <span class="nav-main-link-name">0% Battery Level</span>
                             </a>
                         </li>
                     </ul>

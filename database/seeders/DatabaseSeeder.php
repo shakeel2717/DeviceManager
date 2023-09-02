@@ -25,11 +25,5 @@ class DatabaseSeeder extends Seeder
         $user->password = bcrypt("asdfasdf");
         $user->save();
 
-
-        $country = new Country();
-        $country->name = 'Pakistan';
-        $country->flag = 'https://flagcdn.com/w160/pk.png';
-        $country->description = "The country is far from the rest of the world, but it is a mistake to think that everything is upside down. The websites of Australian companies have an unusual design for us, but this is due to the fact that they have taken a different path to improve the work on the Internet.";
-        $country->save();
     }
 }

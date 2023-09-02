@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('devices', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('number_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('from')->default("Unknown");
-            $table->longText('message')->nullable();
-            $table->timestamp('received_at')->nullable();
+            $table->string('code');
+            $table->string('name');
+            $table->string('battery_level')->default(10);
+            $table->boolean('charging')->default(false);
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('devices');
     }
 };
