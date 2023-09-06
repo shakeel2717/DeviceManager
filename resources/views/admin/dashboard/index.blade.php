@@ -28,7 +28,7 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="#">
+                                href="{{ route('admin.device.index') }}">
                                 <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="#">
+                                href="{{ route('admin.device.index') }}">
                                 <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
@@ -72,7 +72,7 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="#">
+                                href="{{ route('admin.device.index') }}">
                                 <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
@@ -86,7 +86,7 @@
                             <dl class="mb-0">
                                 <dt class="fs-3 fw-bold">
                                     {{ $alldevices->where('battery_level', '>=', '90')->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Devices Upto 90% Battery Level
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Devices 90% Battery or more
                                 </dd>
                             </dl>
                             <div class="item item-rounded-lg bg-body-light">
@@ -109,7 +109,7 @@
                             <dl class="mb-0">
                                 <dt class="fs-3 fw-bold">
                                     {{ $alldevices->where('battery_level', '>=', '50')->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Devices Upto 50% Battery Level
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Devices 50% Battery or more
                                 </dd>
                             </dl>
                             <div class="item item-rounded-lg bg-body-light">
@@ -132,7 +132,7 @@
                             <dl class="mb-0">
                                 <dt class="fs-3 fw-bold">
                                     {{ $alldevices->where('battery_level', '>=', '30')->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Devices Upto 30% Battery Level
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Devices 30% Battery or more
                                 </dd>
                             </dl>
                             <div class="item item-rounded-lg bg-body-light">
@@ -155,7 +155,7 @@
                             <dl class="mb-0">
                                 <dt class="fs-3 fw-bold text-warning">
                                     {{ $alldevices->where('battery_level', '>=', '15')->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-warning mb-0">Devices Upto 15% Battery Level
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-warning mb-0">Devices Upto 15% Battery or more
                                 </dd>
                             </dl>
                             <div class="item item-rounded-lg bg-body-light">
@@ -164,7 +164,7 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.device.battery_level', ['level' => 0]) }}">
+                                href="{{ route('admin.device.battery_level', ['level' => 15]) }}">
                                 <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
@@ -177,8 +177,31 @@
                             class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                             <dl class="mb-0">
                                 <dt class="fs-3 fw-bold text-danger">
-                                    {{ $alldevices->where('battery_level', '<', '15')->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-danger mb-0">Devices Below 15% Battery Level
+                                    {{ $alldevices->where('battery_level', '>=', '8')->count() }}</dt>
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-danger mb-0">Devices 08% Battery or more
+                                </dd>
+                            </dl>
+                            <div class="item item-rounded-lg bg-body-light">
+                                <i class="far fa-gem fs-3 text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="bg-body-light rounded-bottom">
+                            <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
+                                href="{{ route('admin.device.battery_level', ['level' => 8]) }}">
+                                <span>View all Devices</span>
+                                <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xxl-3">
+                    <div class="block block-rounded d-flex flex-column h-100 mb-0">
+                        <div
+                            class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
+                            <dl class="mb-0">
+                                <dt class="fs-3 fw-bold text-danger">
+                                    {{ $alldevices->where('battery_level', '>=', '0')->count() }}</dt>
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-danger mb-0">Devices 0% Battery or more
                                 </dd>
                             </dl>
                             <div class="item item-rounded-lg bg-body-light">
