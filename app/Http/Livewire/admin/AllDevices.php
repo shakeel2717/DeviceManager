@@ -15,8 +15,8 @@ final class AllDevices extends PowerGridComponent
     use ActionButton;
     use WithExport;
 
-    public int $from;
-    public int $to;
+    public int $from = 0;
+    public int $to = 100;
     public $name;
     public $code;
     public $battery_level;

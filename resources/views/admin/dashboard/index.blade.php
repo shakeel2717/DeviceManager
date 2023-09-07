@@ -27,7 +27,7 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.device.battery_level', ['from' => 90, 'to' => 100]) }}">
+                                href="{{ route('admin.device.index') }}">
                                 <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
@@ -49,7 +49,7 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.device.battery_level', ['from' => 90, 'to' => 100]) }}">
+                                href="{{ route('admin.device.index') }}">
                                 <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
@@ -71,7 +71,7 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.device.battery_level', ['from' => 90, 'to' => 100]) }}">
+                                href="{{ route('admin.device.index') }}">
                                 <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>

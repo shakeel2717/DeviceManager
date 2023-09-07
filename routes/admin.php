@@ -12,6 +12,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin/')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('/', DashboardController::class);
-    Route::get('/battery_level/{from}/{to}', [DeviceController::class, 'battery_level'])->name('device.battery_level');
+    Route::get('/battery_level/{from?}/{to?}', [DeviceController::class, 'battery_level'])->name('device.battery_level');
     Route::resource('/device', DeviceController::class);
 });
