@@ -22,7 +22,7 @@
             <div class="row items-push">
                 <div class="col-md-12">
                     <div class="card card-body">
-                        <livewire:admin.all-devices level="{{ $level ?? 100 }}" />
+                        <livewire:admin.all-devices from="{{ $from }}" to="{{ $to }}" />
                     </div>
                 </div>
             </div>

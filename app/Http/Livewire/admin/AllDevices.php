@@ -15,7 +15,8 @@ final class AllDevices extends PowerGridComponent
     use ActionButton;
     use WithExport;
 
-    public $level;
+    public int $from;
+    public int $to;
     public $name;
     public $code;
     public $battery_level;
@@ -57,7 +58,7 @@ final class AllDevices extends PowerGridComponent
      */
     public function datasource(): Builder
     {
-        return Device::query()->where('battery_level', '<', $this->level);
+        return Device::query()->whereBetween('battery_level', [$this->from, $this->to]);
     }
 
     /*

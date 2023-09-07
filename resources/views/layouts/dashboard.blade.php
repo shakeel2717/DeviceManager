@@ -71,33 +71,45 @@
                         </li>
                         <li class="nav-main-heading">Battery Level</li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('admin.device.battery_level', ['level' => 90]) }}">
+                            <a class="nav-main-link"
+                                href="{{ route('admin.device.battery_level', ['from' => 90, 'to' => 100]) }}">
                                 <i class="nav-main-link-icon si si-speedometer"></i>
-                                <span class="nav-main-link-name">90% Battery Level</span>
+                                <span class="nav-main-link-name">Between 90% to 100%</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('admin.device.battery_level', ['level' => 50]) }}">
+                            <a class="nav-main-link"
+                                href="{{ route('admin.device.battery_level', ['from' => 60, 'to' => 90]) }}">
                                 <i class="nav-main-link-icon si si-speedometer"></i>
-                                <span class="nav-main-link-name">50% Battery Level</span>
+                                <span class="nav-main-link-name">Between 60% to 90%</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('admin.device.battery_level', ['level' => 30]) }}">
+                            <a class="nav-main-link"
+                                href="{{ route('admin.device.battery_level', ['from' => 40, 'to' => 60]) }}">
                                 <i class="nav-main-link-icon si si-speedometer"></i>
-                                <span class="nav-main-link-name">30% Battery Level</span>
+                                <span class="nav-main-link-name">Between 40% to 60%</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('admin.device.battery_level', ['level' => 15]) }}">
+                            <a class="nav-main-link"
+                                href="{{ route('admin.device.battery_level', ['from' => 20, 'to' => 40]) }}">
                                 <i class="nav-main-link-icon si si-speedometer"></i>
-                                <span class="nav-main-link-name">15% Battery Level</span>
+                                <span class="nav-main-link-name">Between 20% to 40%</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('admin.device.battery_level', ['level' => 0]) }}">
+                            <a class="nav-main-link"
+                                href="{{ route('admin.device.battery_level', ['from' => 10, 'to' => 20]) }}">
                                 <i class="nav-main-link-icon si si-speedometer"></i>
-                                <span class="nav-main-link-name">0% Battery Level</span>
+                                <span class="nav-main-link-name">Between 10% to 20%</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link"
+                                href="{{ route('admin.device.battery_level', ['from' => 0, 'to' => 10]) }}">
+                                <i class="nav-main-link-icon si si-speedometer"></i>
+                                <span class="nav-main-link-name">Between 0% to 10%</span>
                             </a>
                         </li>
                     </ul>

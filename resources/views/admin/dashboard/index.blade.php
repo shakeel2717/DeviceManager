@@ -11,7 +11,6 @@
                 </div>
             </div>
         </div>
-
         <div class="content">
             <div class="row items-push">
                 <div class="col-sm-6 col-xxl-4">
@@ -28,7 +27,7 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.device.index') }}">
+                                href="{{ route('admin.device.battery_level', ['from' => 90, 'to' => 100]) }}">
                                 <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
@@ -50,7 +49,7 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.device.index') }}">
+                                href="{{ route('admin.device.battery_level', ['from' => 90, 'to' => 100]) }}">
                                 <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
@@ -72,22 +71,23 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.device.index') }}">
+                                href="{{ route('admin.device.battery_level', ['from' => 90, 'to' => 100]) }}">
                                 <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-xxl-3">
+            </div>
+            <div class="row">
+                <div class="col-md-3 mb-3">
                     <div class="block block-rounded d-flex flex-column h-100 mb-0">
                         <div
                             class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                             <dl class="mb-0">
                                 <dt class="fs-3 fw-bold">
-                                    {{ $alldevices->where('battery_level', '>=', '90')->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Devices 90% Battery or more
-                                </dd>
+                                    {{ $alldevices->whereBetween('battery_level', [90, 100])->count() }}</dt>
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Between 90% to 100%</dd>
                             </dl>
                             <div class="item item-rounded-lg bg-body-light">
                                 <i class="far fa-gem fs-3 text-primary"></i>
@@ -95,22 +95,21 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.device.battery_level', ['level' => 90]) }}">
+                                href="{{ route('admin.device.battery_level', ['from' => 90, 'to' => 100]) }}">
                                 <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-xxl-3">
+                <div class="col-md-3 mb-3">
                     <div class="block block-rounded d-flex flex-column h-100 mb-0">
                         <div
                             class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                             <dl class="mb-0">
                                 <dt class="fs-3 fw-bold">
-                                    {{ $alldevices->where('battery_level', '>=', '50')->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Devices 50% Battery or more
-                                </dd>
+                                    {{ $alldevices->whereBetween('battery_level', [60, 90])->count() }}</dt>
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Between 60% to 90%</dd>
                             </dl>
                             <div class="item item-rounded-lg bg-body-light">
                                 <i class="far fa-gem fs-3 text-primary"></i>
@@ -118,22 +117,21 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.device.battery_level', ['level' => 50]) }}">
+                                href="{{ route('admin.device.battery_level', ['from' => 60, 'to' => 90]) }}">
                                 <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-xxl-3">
+                <div class="col-md-3 mb-3">
                     <div class="block block-rounded d-flex flex-column h-100 mb-0">
                         <div
                             class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                             <dl class="mb-0">
                                 <dt class="fs-3 fw-bold">
-                                    {{ $alldevices->where('battery_level', '>=', '30')->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Devices 30% Battery or more
-                                </dd>
+                                    {{ $alldevices->whereBetween('battery_level', [40, 60])->count() }}</dt>
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Between 40% to 60%</dd>
                             </dl>
                             <div class="item item-rounded-lg bg-body-light">
                                 <i class="far fa-gem fs-3 text-primary"></i>
@@ -141,22 +139,21 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.device.battery_level', ['level' => 30]) }}">
+                                href="{{ route('admin.device.battery_level', ['from' => 40, 'to' => 60]) }}">
                                 <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-xxl-3">
+                <div class="col-md-3 mb-3">
                     <div class="block block-rounded d-flex flex-column h-100 mb-0">
                         <div
                             class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                             <dl class="mb-0">
-                                <dt class="fs-3 fw-bold text-warning">
-                                    {{ $alldevices->where('battery_level', '>=', '15')->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-warning mb-0">Devices Upto 15% Battery or more
-                                </dd>
+                                <dt class="fs-3 fw-bold">
+                                    {{ $alldevices->whereBetween('battery_level', [20, 40])->count() }}</dt>
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Between 20% to 40%</dd>
                             </dl>
                             <div class="item item-rounded-lg bg-body-light">
                                 <i class="far fa-gem fs-3 text-primary"></i>
@@ -164,22 +161,21 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.device.battery_level', ['level' => 15]) }}">
+                                href="{{ route('admin.device.battery_level', ['from' => 20, 'to' => 40]) }}">
                                 <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-xxl-3">
+                <div class="col-md-3 mb-3">
                     <div class="block block-rounded d-flex flex-column h-100 mb-0">
                         <div
                             class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                             <dl class="mb-0">
-                                <dt class="fs-3 fw-bold text-danger">
-                                    {{ $alldevices->where('battery_level', '>=', '8')->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-danger mb-0">Devices 08% Battery or more
-                                </dd>
+                                <dt class="fs-3 fw-bold">
+                                    {{ $alldevices->whereBetween('battery_level', [10, 20])->count() }}</dt>
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Between 10% to 20%</dd>
                             </dl>
                             <div class="item item-rounded-lg bg-body-light">
                                 <i class="far fa-gem fs-3 text-primary"></i>
@@ -187,22 +183,21 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.device.battery_level', ['level' => 8]) }}">
+                                href="{{ route('admin.device.battery_level', ['from' => 10, 'to' => 20]) }}">
                                 <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-xxl-3">
+                <div class="col-md-3 mb-3">
                     <div class="block block-rounded d-flex flex-column h-100 mb-0">
                         <div
                             class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                             <dl class="mb-0">
-                                <dt class="fs-3 fw-bold text-danger">
-                                    {{ $alldevices->where('battery_level', '>=', '0')->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-danger mb-0">Devices 0% Battery or more
-                                </dd>
+                                <dt class="fs-3 fw-bold">
+                                    {{ $alldevices->whereBetween('battery_level', [0, 10])->count() }}</dt>
+                                <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Between 0% to 10%</dd>
                             </dl>
                             <div class="item item-rounded-lg bg-body-light">
                                 <i class="far fa-gem fs-3 text-primary"></i>
@@ -210,53 +205,7 @@
                         </div>
                         <div class="bg-body-light rounded-bottom">
                             <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.device.battery_level', ['level' => 0]) }}">
-                                <span>View all Devices</span>
-                                <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xxl-3">
-                    <div class="block block-rounded d-flex flex-column h-100 mb-0">
-                        <div
-                            class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
-                            <dl class="mb-0">
-                                <dt class="fs-3 fw-bold text-success">
-                                    {{ $alldevices->where('battery_level', '100')->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-success mb-0">Devices With 100% Battery
-                                </dd>
-                            </dl>
-                            <div class="item item-rounded-lg bg-body-light">
-                                <i class="far fa-gem fs-3 text-primary"></i>
-                            </div>
-                        </div>
-                        <div class="bg-body-light rounded-bottom">
-                            <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.device.battery_level', ['level' => 100]) }}">
-                                <span>View all Devices</span>
-                                <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xxl-3">
-                    <div class="block block-rounded d-flex flex-column h-100 mb-0">
-                        <div
-                            class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
-                            <dl class="mb-0">
-                                <dt class="fs-3 fw-bold text-success">
-                                    {{ $alldevices->where('charging', true)->count() }}</dt>
-                                <dd class="fs-sm fw-medium fs-sm fw-medium text-success mb-0">Devices On Charging
-                                </dd>
-                            </dl>
-                            <div class="item item-rounded-lg bg-body-light">
-                                <i class="far fa-gem fs-3 text-primary"></i>
-                            </div>
-                        </div>
-                        <div class="bg-body-light rounded-bottom">
-                            <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between"
-                                href="{{ route('admin.device.battery_level', ['level' => 0]) }}">
+                                href="{{ route('admin.device.battery_level', ['from' => 0, 'to' => 10]) }}">
                                 <span>View all Devices</span>
                                 <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                             </a>
