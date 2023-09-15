@@ -62,7 +62,13 @@ class WebHookController extends Controller
                 ], 404);
             }
 
-            $device->charging = $request->input('charging');
+            if ($request->input('charging') == "1") {
+                $charging = true;
+            } else {
+                $charging = false;
+            }
+
+            $device->charging = $charging;
             $device->battery_level = $request->input('battery_level');
             $device->save();
 
@@ -70,6 +76,7 @@ class WebHookController extends Controller
                 'status' => 'success',
                 'message' => 'Data validated and processed successfully.',
             ], 200);
+            
         } catch (\Throwable $th) {
             info('Failed to Save SMS: ' . $th->getMessage());
 
