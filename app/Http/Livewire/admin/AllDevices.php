@@ -177,25 +177,54 @@ final class AllDevices extends PowerGridComponent
      * @return array<int, Button>
      */
 
-    /*
+
     public function actions(): array
     {
-       return [
-           Button::make('edit', 'Edit')
-               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
-               ->route('device.edit', function(\App\Models\Device $model) {
-                    return $model->id;
-               }),
+        return [
+            //    Button::make('edit', 'Edit')
+            //        ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
+            //        ->route('device.edit', function(\App\Models\Device $model) {
+            //             return $model->id;
+            //        }),
 
-           Button::make('destroy', 'Delete')
-               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
-               ->route('device.destroy', function(\App\Models\Device $model) {
-                    return $model->id;
-               })
-               ->method('delete')
+            //    Button::make('destroy', 'Delete')
+            //        ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
+            //        ->route('device.destroy', function(\App\Models\Device $model) {
+            //             return $model->id;
+            //        })
+            //        ->method('delete')
+
+            Button::make('delete', 'Delete Device')
+                ->class('btn btn-danger btn-sm')
+                ->emit('delete', ['id' => 'id']),
         ];
     }
-    */
+
+
+    protected function getListeners(): array
+    {
+        return array_merge(
+            parent::getListeners(),
+            [
+                'delete'   => 'delete',
+                'confirmedDelete' => 'confirmedDelete',
+            ]
+        );
+    }
+
+    public function confirmedDelete($id)
+    {
+        $user = Device::find($id);
+        $user->delete();
+
+        $this->dispatchBrowserEvent('deleted', ['status' => 'Device Deleted Successfully']);
+    }
+
+    public function delete($id)
+    {
+        $this->dispatchBrowserEvent('warning', ['id' => $id['id']]);
+    }
+
 
     public function onUpdatedEditable(string $id, string $field, string $value): void
     {
